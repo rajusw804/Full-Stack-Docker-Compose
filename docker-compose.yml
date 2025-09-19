@@ -7,7 +7,7 @@ services:
       - "3000:3000"
     volumes:
       - ./server:/usr/src/app
-      - /usr/src/app/node_modules # This line is a magic trick to avoid overwriting node_modules
+      - node_modules_data:/usr/src/app/node_modules
     depends_on:
       - mongodb
 
@@ -25,3 +25,4 @@ services:
       
 volumes:
   mongo-data:
+  node_modules_data:
