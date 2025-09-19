@@ -8,8 +8,7 @@ services:
     volumes:
       - ./server:/usr/src/app
     depends_on:
-      mongodb:
-        condition: service_healthy
+      - mongodb
 
   mongodb:
     image: mongo:latest
@@ -22,7 +21,6 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
-      start_period: 30s
-
+      
 volumes:
   mongo-data:
